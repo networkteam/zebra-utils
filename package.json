@@ -1,6 +1,6 @@
 {
   "name": "@networkteam/zebra-utils",
-  "version": "0.10.0",
+  "version": "0.1.0",
   "author": "networkteam GmbH",
   "license": "MIT",
   "publishConfig": {
@@ -59,12 +59,6 @@
   },
   "files": [
     "src",
-    "*.js",
-    "*.d.ts*",
-    "api",
-    "lib",
-    "server",
-    "types",
-    "utils"
+    "dist"
   ]
 }
