@@ -7,7 +7,8 @@
 To install `zebra-utils`, run:
 
 ```bash
-npm install @networkteam/zebra-utils
+yarn add @networkteam/zebra-utils
+// npm install @networkteam/zebra-utils
 ```
 
 ## Zebra
@@ -235,7 +236,7 @@ These are some helper functions which are often used in Zebra projects.
 
 This package provides a function named _cn_, based on the same-named function provided by _shadcn/ui_. It uses [clsx](https://github.com/lukeed/clsx) in combination with [tailwind-merge](https://github.com/gjtorikian/tailwind_merge). _tailwind-merge_ merges Tailwind CSS classes to prevent style conflicts. Use it the same way as _classNames_ or _clsx_:
 
-\_ts
+```ts
 
 <div
     className={cn('p-4 rounded-lg',
@@ -248,7 +249,7 @@ This package provides a function named _cn_, based on the same-named function pr
 >
     {children}
 </div>
-_
+```
 
 ### baseClasses
 
@@ -286,7 +287,7 @@ const defaultSizes = new Map([
 ]);
 ```
 
-With the default sizes, when setting `marginMd` to `topLarge`, the resulting class would be `md:mt-28`. The sizes can be overwritten with the second argument of the `baseClasses` helper.
+For example, with the default sizes, when setting `marginMd` to `topLarge`, the resulting class would be `md:mt-28`. The sizes can be overwritten with the second argument of the `baseClasses` helper.
 
 ### slugify
 
