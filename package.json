@@ -24,7 +24,8 @@
     "lint": "eslint src config"
   },
   "dependencies": {
-    "@babel/runtime": "^7.24.7"
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.24.7",
@@ -34,13 +35,13 @@
     "@babel/preset-env": "^7.24.7",
     "@babel/preset-react": "^7.24.7",
     "@babel/preset-typescript": "^7.24.7",
+    "@babel/runtime": "^7.24.7",
     "@networkteam/zebra": "^1.0.0",
     "@types/node": "^20.14.9",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.14.1",
     "@typescript-eslint/parser": "^7.14.1",
-    "clsx": "^2.1.1",
     "eslint": "^9.5.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
@@ -49,7 +50,6 @@
     "prettier": "^3.3.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "tailwind-merge": "^2.3.0",
     "typescript": "^5.5.2"
   },
   "peerDependencies": {
