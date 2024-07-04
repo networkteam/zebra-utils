@@ -11,7 +11,7 @@ type StyleguidePageProps = {
   };
 };
 
-const Styleguide =
+const Route =
   (content: StyleguideContent, path: string = '/styleguide') =>
   ({ params: { slug } }: StyleguidePageProps) => {
     if (!process.env.ENABLE_STYLEGUIDE) {
@@ -23,4 +23,4 @@ const Styleguide =
     return <Layout content={content} pageContent={getPageContent(content, slug)} path={_path} />;
   };
 
-export default Styleguide;
+export default Route;
