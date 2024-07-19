@@ -117,10 +117,10 @@ Unfortunately, it's not possible to pass a loader function directly to the next 
 // imageLoader.ts
 import { imgProxyLoader } from '@networkteam/zebra-utils';
 
-export default imgProxyLoader('_img');
+export default imgProxyLoader('_image');
 ```
 
-The `imgProxyLoader` creates a path with the provided width and quality (through the next image), as well as the base64 encoded src. The function takes a path segment (`_img` by default) which has to match the path segment in the following middleware.
+The `imgProxyLoader` creates a path with the provided width and quality (through the next image), as well as the base64 encoded src. The function takes a path segment (`_image` by default) which has to match the path segment in the following middleware.
 
 ### Middleware
 
@@ -133,7 +133,7 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 export const middleware = async (request: NextRequest) => {
-  if (request.nextUrl.pathname.startsWith('/_img/')) {
+  if (request.nextUrl.pathname.startsWith('/_image/')) {
     return imgProxyMiddleware(request);
   }
 
@@ -141,11 +141,11 @@ export const middleware = async (request: NextRequest) => {
 };
 
 export const config = {
-  matcher: '/_img/:path*',
+  matcher: '/_image/:path*',
 };
 ```
 
-The middleware catches all paths starting with `/_img`, so all paths created by the imgproxy loader. Make sure the path segment matches the provided path segment of the imgproxy loader. Besides the request, `imgProxyMiddleware` takes `ImgProxyMiddlewareOptions`, where the allowedWidths could be overwritten.
+The middleware catches all paths starting with `/_image`, so all paths created by the imgproxy loader. Make sure the path segment matches the provided path segment of the imgproxy loader. Besides the request, `imgProxyMiddleware` takes `ImgProxyMiddlewareOptions`, where the allowedWidths could be overwritten.
 
 ### Next config
 
