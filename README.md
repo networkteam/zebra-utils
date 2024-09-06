@@ -117,10 +117,10 @@ Unfortunately, it's not possible to pass a loader function directly to the next 
 // imageLoader.ts
 import { imgProxyLoader } from '@networkteam/zebra-utils';
 
-export default imgProxyLoader('_image');
+export default imgProxyLoader('_image', ['s3://my-s3-url']);
 ```
 
-The `imgProxyLoader` creates a path with the provided width and quality (through the next image), as well as the base64 encoded src. The function takes a path segment (`_image` by default) which has to match the path segment in the following middleware.
+The `imgProxyLoader` creates a path with the provided width and quality (through the next image), as well as the base64 encoded src. The function takes a path segment (`_image` by default) which has to match the path segment in the following middleware. The second argument is an array of allowed source URLs. If the src of the image does not start with any of the provided URLs, the original src will be returned by the imgProxyLoader.
 
 ### Middleware
 
