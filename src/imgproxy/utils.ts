@@ -1,5 +1,6 @@
 export const urlSafeBase64 = (value: string | Buffer) => {
-  return Buffer.from(value).toString('base64').replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
+  const buffer = Buffer.isBuffer(value) ? value : Buffer.from(value);
+  return buffer.toString('base64').replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
 };
 
 export const hexDecode = (string: string) => Buffer.from(string, 'hex');
