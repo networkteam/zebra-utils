@@ -6,14 +6,15 @@ import './styles.css';
 import { notFound } from 'next/navigation';
 
 type StyleguidePageProps = {
-  params: {
+  params: Promise<{
     slug?: string | string[];
-  };
+  }>;
 };
 
 const Route =
   (content: StyleguideContent, path: string = '/styleguide') =>
-  ({ params: { slug } }: StyleguidePageProps) => {
+  async (props: StyleguidePageProps) => {
+    const { slug } = await props.params;
     if (!process.env.ENABLE_STYLEGUIDE) {
       return notFound();
     }
