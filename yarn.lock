@@ -1182,10 +1182,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@networkteam/zebra@^1.0.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@networkteam/zebra/-/zebra-1.2.0.tgz#4c3ae96fd016d426a5c10de352b55d5807352d60"
-  integrity sha512-zPMgiE8jINiU6EkNZeYZgFUfQ6SGBHBBti/6rMHMFtpvcEX6eU9/wK0DHft6h4CUD0tbQKqXZ7wXE/Of9dt4iw==
+"@networkteam/zebra@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@networkteam/zebra/-/zebra-2.0.0.tgz#f959b5eb5a22661e3927aeb4edd168beb097984d"
+  integrity sha512-zXblUacVsTWLYBvv/Fois1LR8fzwRVz4b0diT62g0U5GuGUVOdqToTU0VaewUn1kRj0+qivFGOiLYYz1Rm5etw==
   dependencies:
     "@babel/runtime" "^7.20.13"
     "@supercharge/promise-pool" "^2.3.2"
