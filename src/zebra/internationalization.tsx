@@ -6,7 +6,10 @@ type Props = {
   }>;
 };
 
-export const localizedPage = <P extends Props>(Component: NextPage<P>, locale: string = 'en'): NextPage<P> => {
+export const localizedPage = async <P extends Props>(
+  AsyncComponent: Promise<NextPage<P>>,
+  locale: string = 'en'
+): Promise<NextPage<P>> => {
   const WrappedComponent: NextPage<P> = async (props: P) => {
     const { slug } = await props?.params;
     const modifiedProps: P = {
@@ -17,9 +20,11 @@ export const localizedPage = <P extends Props>(Component: NextPage<P>, locale: s
       },
     };
 
+    const Component = await AsyncComponent;
     return <Component {...modifiedProps} />;
   };
 
+  const Component = await AsyncComponent;
   WrappedComponent.displayName = `localizedPage(${Component.displayName || Component.name || 'Component'})`;
 
   return WrappedComponent;
