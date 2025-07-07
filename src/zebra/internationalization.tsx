@@ -1,18 +1,19 @@
-import { NextPage, Metadata } from 'next';
+import { Metadata, NextPage } from 'next';
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string[];
-  };
+  }>;
 };
 
 export const localizedPage = <P extends Props>(Component: NextPage<P>, locale: string = 'en'): NextPage<P> => {
-  const WrappedComponent: NextPage<P> = (props: P) => {
+  const WrappedComponent: NextPage<P> = async (props: P) => {
+    const { slug } = await props?.params;
     const modifiedProps: P = {
       ...props,
       params: {
         ...props.params,
-        slug: props?.params?.slug ? [locale, ...props?.params?.slug] : [locale],
+        slug: slug ? [locale, ...slug] : [locale],
       },
     };
 
@@ -31,13 +32,14 @@ export const localizedMetadata = (
   return async ({
     params,
   }: {
-    params: {
+    params: Promise<{
       slug: string[];
-    };
+    }>;
   }): Promise<Metadata> => {
+    const { slug } = await params;
     const modifiedParams = {
       ...params,
-      slug: params?.slug ? [locale, ...params.slug] : [locale],
+      slug: slug ? [locale, ...slug] : [locale],
     };
 
     return generateMetadata({ params: modifiedParams });
