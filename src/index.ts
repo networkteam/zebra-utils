@@ -1,6 +1,5 @@
 // Zebra
 export { default as revalidate } from './zebra/revalidate';
-export { localizedPage, localizedMetadata } from './zebra/internationalization';
 
 // ImgProxy
 export { default as imgProxyLoader } from './imgproxy/loader';
