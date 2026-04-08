@@ -22,7 +22,7 @@ const Layout = ({ content, pageContent, path }: StyleguidePlaygroundProps) => {
   }
 
   return (
-    <div className="sg-relative sg-min-h-screen">
+    <div className="styleguide sg-relative sg-min-h-screen">
       <header className="sg-fixed sg-top-0 sg-left-0 sg-right-0 sg-z-40 sg-h-12 sg-bg-white sg-font-sans sg-shadow-xl md:sg-hidden">
         <button
           className="sg-absolute sg-top-2 sg-right-4 sg-z-50 sg-rounded sg-bg-white sg-p-1.5 sg-text-neutral-800 hover:sg-opacity-60 md:sg-hidden"
