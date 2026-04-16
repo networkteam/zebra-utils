@@ -1,5 +1,6 @@
 'use client';
 
+import './styles.css';
 import Link from 'next/link';
 import { useState } from 'react';
 import { StyleguideContent } from '../types';

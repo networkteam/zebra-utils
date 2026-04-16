@@ -2,7 +2,6 @@ import Layout from './Layout';
 import { getPageContent } from './utils';
 import { StyleguideContent } from 'src/types';
 
-import './styles.css';
 import { notFound } from 'next/navigation';
 
 type StyleguidePageProps = {
