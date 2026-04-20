@@ -27,7 +27,7 @@ const revalidate = async (req: Request) => {
 
   console.info('/api/revalidate', 'Revalidating document cache');
 
-  revalidateTag('document');
+  revalidateTag('document', 'max');
 
   return Response.json({ revalidated: true });
 };
