@@ -125,9 +125,11 @@ app
 
 ```
 
-Assuming all styles and fonts are imported in the project's RootLayout, we can simply import the RootLayout into the styleguide's layout:
+Assuming all styles and fonts are imported in the project's RootLayout, we can simply import the RootLayout into the styleguide's layout. In addition, import the styleguide CSS explicitly:
 
 ```ts
+import '@networkteam/zebra-utils/styleguide/styles.css';
+
 import RootLayout from 'app/[[...slug]]/layout';
 import { localizedPage } from '@networkteam/zebra-utils';
 
