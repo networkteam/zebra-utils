@@ -14,7 +14,11 @@
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.js"
+    ".": "./dist/index.js",
+    "./styleguide": {
+      "types": "./dist/styleguide/index.d.ts",
+      "default": "./dist/styleguide/index.js"
+    }
   },
   "scripts": {
     "build": "yarn clean && yarn ts:compile && yarn babel:compile && yarn styleguide:build",
