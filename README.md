@@ -41,7 +41,7 @@ export const POST = revalidate;
 
 ## ImgProxy
 
-The next config provides a way to use a custom image loader for all (next)-images. It's possible to define custom imageSizes and deviceSizes as well, which are used to create the srcset of the responsive image. The image loader middleware restricts images with dimensions outside of these widths. It uses the default image sizes concatenated with the default device sizes used by Next.js.
+The next config provides a way to use a custom image loader for all (next)-images. It's possible to define custom imageSizes and deviceSizes as well, which are used to create the srcset of the responsive image. The image loader proxy restricts images with dimensions outside of these widths. It uses the default image sizes concatenated with the default device sizes used by Next.js.
 
 ### Loader
 
@@ -54,32 +54,32 @@ import { imgProxyLoader } from '@networkteam/zebra-utils';
 export default imgProxyLoader('_image', ['s3://my-s3-url']);
 ```
 
-The `imgProxyLoader` creates a path with the provided width and quality (through the next image), as well as the base64 encoded src. The function takes a path segment (`_image` by default) which has to match the path segment in the following middleware. The second argument is an array of allowed source URLs. If the src of the image does not start with any of the provided URLs, the original src will be returned by the imgProxyLoader.
+The `imgProxyLoader` creates a path with the provided width and quality (through the next image), as well as the base64 encoded src. The function takes a path segment (`_image` by default) which has to match the path segment in the following proxy. The second argument is an array of allowed source URLs. If the src of the image does not start with any of the provided URLs, the original src will be returned by the imgProxyLoader.
 
-### Middleware
+### Proxy
 
-Create a `middleware.ts` inside of the Next.js root directory with the following content:
+Create a `proxy.ts` inside of the Next.js root directory with the following content:
 
 ```ts
-// middleware.ts
+// proxy.ts
 import { imgProxyMiddleware } from '@networkteam/zebra-utils';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
-export const middleware = async (request: NextRequest) => {
+export function proxy(request: NextRequest) {
   if (request.nextUrl.pathname.startsWith('/_image/')) {
     return imgProxyMiddleware(request);
   }
 
   return NextResponse.next();
-};
+}
 
 export const config = {
   matcher: '/_image/:path*',
 };
 ```
 
-The middleware catches all paths starting with `/_image`, so all paths created by the imgproxy loader. Make sure the path segment matches the provided path segment of the imgproxy loader. Besides the request, `imgProxyMiddleware` takes `ImgProxyMiddlewareOptions`, where the allowedWidths could be overwritten.
+The proxy catches all paths starting with `/_image`, so all paths created by the imgproxy loader. Make sure the path segment matches the provided path segment of the imgproxy loader. Besides the request, `imgProxyMiddleware` takes `ImgProxyMiddlewareOptions`, where the allowedWidths could be overwritten.
 
 ### Next config
 
